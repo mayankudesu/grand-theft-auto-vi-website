@@ -35,6 +35,10 @@ body {
   margin: 0;padding: 0;
 }
 
+.text {
+  background: radial-gradient(225.46% 169.6% at 50% 90%, #ffd27b 0, #df3a93 33.33%, #5c1663 66.67%, rgba(32, 31, 66, 0) 100%)
+}
+
 main {
   background: linear-gradient(
     223.17deg,

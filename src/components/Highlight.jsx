@@ -1,40 +1,53 @@
-import React, { useRef } from "react";
-import { useGSAP } from "@gsap/react";
+import React, { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Highlight = () => {
-  const container = useRef();
+  const textRef = useRef(null);
 
-  useGSAP(
-    () => {
-      gsap.from(".anim-text", {
-        duration: 2,
-        delay: 0.3,
-        opacity: 0,
-        y: 0,
-        scale: 1.2  ,
-        ease: "back.inOut",
-        scrollTrigger: {
-          trigger: ".anim-text",
-          start: "top 60%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-          scrub: 0.8,
-          // pin: true,
-        },
-       
-      });
-    },
-    { scope: container }
-  );
+  useLayoutEffect(() => {
+    const el = textRef.current;
+    if (!el) return;
+
+    gsap.set(el, {
+      y: 20,
+      scale: 1.2,
+      opacity: 0,
+    });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "top 70%",
+        end: "bottom 60%",
+        toggleActions: "play none none reverse",
+        scrub : 2,
+      },
+    });
+
+    tl.to(el, {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+      ease: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      delay: 0.3,
+      
+    });
+
+    return () => {
+      tl.kill();
+      if (tl.scrollTrigger) tl.scrollTrigger.kill();
+    };
+  }, []);
 
   return (
-    <section ref={container}>
+    <section>
       <div className="h-screen w-full relative">
         <div
+          ref={textRef}
           style={{
             background:
               "radial-gradient(225.46% 169.6% at 50% 90%, #ffd27b 0, #df3a93 33.33%, #5c1663 66.67%, rgba(32, 31, 66, 0) 100%)",
@@ -42,13 +55,15 @@ const Highlight = () => {
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
-          className="anim-text w-full h-full flex flex-col justify-center items-start px-48 gap-7"
+          className="w-full h-full flex flex-col justify-center items-start px-4 sm:px-8 md:px-16 lg:px-24 xl:px-48 gap-4 sm:gap-6 md:gap-7"
         >
           <div>
-            <h1 className="text-[5rem] font-extrabold">Vice City, USA.</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[5rem] font-extrabold leading-tight">
+              Vice City, USA.
+            </h1>
           </div>
           <div>
-            <h2 className="text-[2.3rem] leading-12 overflow-hidden font-extrabold">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[2.3rem] leading-6 sm:leading-7 md:leading-8 lg:leading-9 xl:leading-12 overflow-hidden font-extrabold">
               Jason and Lucia have always known the deck is stacked against
               them. But when an easy score goes wrong, they find themselves on
               the darkest side of the sunniest place in America, in the middle

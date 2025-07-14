@@ -1,6 +1,8 @@
 # GRAND THEFT AUTO VI - WEBSITE
 
-_**Ignite Creativity, Accelerate Innovation, Shape the Future**_
+![image alt](https://github.com/mayankudesu/grand-theft-auto-vi-website/blob/9d069e103250a211cbd43570461ac17d316b7486/Mayankudesu%20-%20gta%20vi.png)
+
+_**Experience the Hype, Feel the Vibe, Witness the Future of Open-World Games**_
 
 ![last commit](https://img.shields.io/github/last-commit/mayankudesu/grand-theft-auto-vi-website) 
 ![today](https://img.shields.io/badge/commit-today-blue) 

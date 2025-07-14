@@ -223,7 +223,7 @@ main {
     @apply relative h-dvh overflow-hidden;
 
     .final-content {
-      @apply scale-110;
+      @apply scale-100;
     }
   }
 

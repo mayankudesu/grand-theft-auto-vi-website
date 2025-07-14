@@ -9,6 +9,7 @@ import SecondSlider from "./components/SecondSlider"
 import Lucia from "./components/Lucia"
 import PostCard from "./components/PostCard"
 import FinalSlider from "./components/FinalSlider"
+import Outro from "./components/Outro"
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -31,6 +32,8 @@ const App = () => {
     <PostCard />
 
     <FinalSlider />
+
+    <Outro />
     </main>
   )
 }

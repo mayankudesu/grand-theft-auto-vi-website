@@ -1,6 +1,6 @@
 # GRAND THEFT AUTO VI - WEBSITE
 
-![image alt](https://github.com/mayankudesu/grand-theft-auto-vi-website/blob/9d069e103250a211cbd43570461ac17d316b7486/Mayankudesu%20-%20gta%20vi.png)
+![image alt](https://github.com/mayankudesu/grand-theft-auto-vi-website/blob/d4a9e522f017a0f593ddf2d9fdbe1bc5a1c2c38f/Mayankudesu-gta_vi.png)
 
 _**Experience the Hype, Feel the Vibe, Witness the Future of Open-World Games**_
 
